@@ -1,0 +1,181 @@
+\documentclass{article}
+\usepackage{titling} % Package pour personnaliser les titres
+\usepackage{amsmath, amssymb} % Pour des fonctionnalités mathématiques améliorées
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{lipsum} % Pour générer du texte factice, optionnel
+\usepackage[utf8]{inputenc} % Encodage UTF-8
+\usepackage[a4paper,margin=2.5cm]{geometry} % Marges de 2.5 cm
+\usepackage{fancyhdr} % Pour personnaliser les en-têtes et pieds de page
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lastpage} % Permet de récupérer le numéro de la dernière page
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{setspace} % permet de gérer l'interligne
+\usepackage{parskip} % Espacement automatique des paragraphes
+
+% Configuration des en-têtes et pieds de
+% Configuration du package fancyhdr
+\pagestyle{fancy}
+\fancyhf{} % Efface les styles par défaut
+\fancyhead[L]{\textbf{Cours - La fonction affine}} % En-tête à gauche
+\fancyhead[R]{\textbf{Décembre 2024}}
+\fancyfoot[R]{Page \thepage\ sur \pageref{LastPage}} % Numéro de page centré en bas
+\fancyfoot[L]{} % Pied de page à gauche
+
+% Suppression de la ligne horizontale par défaut dans l'en-tête
+\renewcommand{\headrulewidth}{0.4pt} % Ligne fine sous l'en-tête
+\renewcommand{\footrulewidth}{0.4pt} % Ligne fine au-dessus du pied de page
+
+\begin{document}
+
+% Définition
+\section{\textbf{Définition}}
+
+\begin{itemize}
+    \item a et b désignent deux nombres réels fixés. Une fonction affine f est une fonction définie sur \(\mathbb{R}\) par la relation \(f(x)=ax+b\).
+    \item Si a = 0 : f est une \textbf{fonction constante} \(f(x)=b\)
+    \item Si b = 0 : f est une \textbf{fonction linéaire} de coefficient a \(f(x)=ax\)
+    \vspace*{1cm}
+    \item Toutes les fonctions linéaires sont des fonctions affines.
+    \item Toutes les fonctions constantes sont des fonctions affines.
+\end{itemize}
+
+\section{\textbf{Images et antécédents}}
+\begin{itemize}
+    \item On dit que le nombre réel \(f(x)\) est l'\textbf{image} du nombre réel x par la fonction f ; 
+    \item On dit que le nombre réel x est l'\textbf{antécédent} du nombre réel \(f(x)\) par la fonction f.
+\end{itemize}
+
+Exemple : On considère la fonction f définie sur \(\mathbb{R}\) telle que \(f(x)=-3x+1\)
+\begin{itemize}
+    \item L'image de 2 est \(f(2)=-3 \times 2 + 1 = -6+1 = -5\)
+    \item Pour calculer un antécédant, il faut résoudre une équation :  \(-3x+1=2\). On dit que -5 est l'antécédent de 2 est \(-5\)
+\end{itemize}
+
+\section{\textbf{Représentation graphique}}
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle,
+            xmin=-5, xmax=5, % Plage de x
+            ymin=-5, ymax=5, % Plage de y
+            xlabel = \(x\),
+            ylabel = \(f(x)\),
+            grid = both,
+            width=10cm, % Largeur du graphique
+            height=10cm, % Hauteur du graphique
+            domain=-5:5, % Plage de la fonction
+            unit vector ratio = 1:1,
+            xtick={-5,-4,-3,-2,-1,0,1,2,3,4,5}, % Positions des graduations principales sur l'axe x
+            ytick={-5,-4,-3,-2,-1,0,1,2,3,4,5},
+            major grid style={line width=0.8pt, draw=black!70}, % Grille principale plus épaisse et foncée
+            minor grid style={line width=0.5pt, draw=black!50}, % Grille secondaire plus fine et foncée
+            samples=100
+            ]
+            \addplot[thick, blue] {-3*x +1};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+On dit que cette droite a pour équation \(y = ax + b\)
+\begin{itemize}
+    \item a est le \textbf{coefficient directeur} de la droite 
+    \item b est l'\textbf{ordonnée à l'origine} de la droite (où la droite coupe l'axe des ordonnée à x=0)
+\end{itemize}
+
+\newpage
+\section{\textbf{Méthode pour retrouver le coefficient directeur (a)}}
+
+\begin{enumerate}
+    \item \textbf{Méthode algébrique :} 
+    \[
+    \text{Soit deux points \( A(x_A, y_A) \) et \( B(x_B, y_B) \) de coordonnées, le coefficient directeur \( a \) est donné par :}
+    \]
+    \[
+    a = \frac{y_B - y_A}{x_B - x_A} = \frac{f(x_B) - f(x_A)}{x_B - x_A}
+    \]
+
+    \item \textbf{Méthode graphique :} 
+    \begin{itemize}
+        \item On choisit deux points sur le plan
+        \item puis on calcule les déplacements pour aller du premier au deuxième point (haut/bas et gauche/droite)
+        \item Par exemple, sur le plan ci-dessus, on descend de 3 unités et on se déplace à droite de 1 unité. Le coefficient directeur de cette fonction est alors :
+        \[
+        a = \frac{-3}{1} = -3
+        \]
+    \end{itemize}
+\end{enumerate}
+
+
+
+
+
+\section{\textbf{Variation et signe d'une fonction affine}}
+
+Le sens de variation d'une fonction affine dépend du signe du coefficient directeur (a) \\
+Ce coefficient directeur représente la "pente" de la droite représentative de f.
+\begin{itemize}
+    \item si \(a < 0\) alors la fonction est décroissante.
+    \item si \(a = 0\) alors la fonction est constante.
+    \item si \(a > 0\) alors la fonction est croissante.
+\end{itemize}
+
+\begin{itemize}
+    \item Si \(a > 0\)
+    \begin{enumerate}
+        \item Son tableau de signe : 
+        \[
+        \renewcommand{\arraystretch}{2}
+        \begin{array}{|c|ccccc|}
+        \hline
+        x & -\infty & & \frac{-b}{a} & & +\infty \\ \hline
+        \text{signe de} \, f(x) & & - & 0 & + & \\ \hline
+        \end{array}
+        \]
+        \vspace*{1cm}
+        \item Son tableau de variation : 
+        \[
+        \renewcommand{\arraystretch}{2}
+        \begin{array}{|c|ccccc|}
+        \hline
+        x & -\infty & & \frac{-b}{a} & & +\infty \\ \hline
+        \text{Variation de} \, f(x) &  & \nearrow & 0 & \nearrow &  \\ \hline
+        \end{array}
+        \]
+    \end{enumerate}
+    
+    \item Si \(a < 0\)
+    \begin{enumerate}
+        \item Son tableau de signe : 
+        \[
+        \renewcommand{\arraystretch}{2}
+        \begin{array}{|c|ccccc|}
+        \hline
+        x & -\infty & & \frac{-b}{a} & & +\infty \\ \hline
+        \text{signe de} \, f(x) & & + & 0 & - & \\ \hline
+        \end{array}
+        \]
+        \vspace*{1cm}
+        \item Son tableau de variation : 
+        \[
+        \renewcommand{\arraystretch}{2}
+        \begin{array}{|c|ccccc|}
+        \hline
+        x & -\infty & & \frac{-b}{a} & & +\infty \\ \hline
+        \text{Variation de} \, f(x) &  & \searrow & 0 & \searrow &  \\ \hline
+        \end{array}
+        \]
+    \end{enumerate}
+\end{itemize}
+
+
+
+\end{document}
