@@ -1,0 +1,630 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto Slab', serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* SECTION ACCUEIL */
+
+#accueil {
+    background: url(images/home1.jpg) no-repeat center;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+#accueil header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.nav-links {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.nav-links a {
+    text-decoration: none;
+    text-align: center;
+    width: 60%;
+    color: white;
+}
+
+.title {
+    position: relative;
+    margin-left: 15%;
+    margin-top: 15%;
+    padding: 20px;
+    font-family: 'Roboto Slab',serif;
+    font-size: 300%;
+    font-style: normal;
+    color: white;
+    z-index: 1;
+}
+
+.title::after {
+    content: "H"; /* Lettre en arrière-plan */
+    position: absolute;
+    transform: translate(-46vh, -30vh); /* Centrage */
+    font-size: 50vh; /* Taille de la lettre */
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2); /* Blanc transparent */
+    z-index: 0; /* Derrière le texte */
+    font-family: 'Roboto Slab',serif;
+}
+
+.text-st3 {
+    text-align: justify;
+    justify-content: right;
+    margin-left: 20%;
+    margin-right: 30%;
+    font-family: 'Roboto Slab';
+    font-size: 12px;
+    color: white;
+}
+
+/* SECTION ABOUT */
+
+#about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    background-color: white;
+}
+
+.about-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+}
+
+.image1:hover {
+    transform: scale(1.1);
+}
+
+.image2:hover {
+    transform: scale(1.1);
+}
+
+.image1 {
+    width: 60%;
+    height: 20%;
+    object-fit: cover;
+    margin-top: 30%;
+    margin-left: -35%;
+    border: 3px solid rgb(193, 176, 134);
+    border-radius: 10px;
+    box-shadow: 8px 8px 15px black;
+    z-index: 0;
+}
+
+.image2 {
+    width: 55%;
+    height: 20%;
+    margin-top: -25%;
+    margin-left: 20%;
+    margin-bottom: 25%;
+    border: 3px solid rgb(193, 176, 134);
+    border-radius: 10px;
+    box-shadow: 8px 8px 15px black;
+    z-index: 1;
+}
+
+.about-text {
+    width: 50%;
+}
+
+.sous-titre  {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin-left: 10%;
+    text-align: left;
+    color: rgb(44, 43, 43);
+    gap: 10px;
+}
+
+.sous-titre::before {
+    content: "";
+    display: block;
+    width: 75px;
+    height: 4px;
+    background-color: rgb(193, 176, 134);
+}
+
+.about-text h3 {
+    font-weight: 400;
+    text-align: left;
+    margin-left: 10%;
+}
+
+.text1 {
+    font-size: 12px;
+    text-align: justify;
+    margin-left: 25%;
+}
+
+.text2 {
+    font-size: 12px;
+    text-align: justify;
+    margin-left: 25%;
+    margin-bottom: 10%;
+}
+
+.about-text a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-left: 25%;
+    color: white;
+    border: 3px solid white;
+    background-color: rgb(193, 176, 134);
+    width: 80px;
+    height: 30px;
+    border-radius: 25px;
+    padding: 10px 20px;
+    box-shadow: 2px 15px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* PARTIE AMENITIES */
+
+#amenities {
+    height: 100vh;
+    width: 100vw; /* Correction pour s'étendre sur toute la largeur */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-con {
+    position: relative;
+    width: 97%;
+    height: 40vh;
+    margin: auto;
+    background: url('images/ami.jpg') no-repeat center center;
+    background-size: cover; /* Ajustement de l'image */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* Meilleure répartition */
+    padding: 20px;
+    border: 2px solid rgb(193, 176, 134);
+}
+
+.overlay-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 40%;
+    max-width: 500px; /* Limite la taille */
+    height: auto; /* Évite une hauteur fixe inutile */
+    background: rgba(63, 156, 193, 0.3);
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid rgb(193, 176, 134);
+    box-shadow: 2px 15px 20px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    margin-top: 25%;
+    margin-left: 50%;
+}
+
+.overlay-text:hover {
+    background-color: rgba(63, 156, 193, 0.6);
+}
+
+.sous-titre4 {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.text-st {
+    font-size: 12px;
+    text-align: justify;
+}
+
+.icon-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    font-size: 12px;
+}
+
+i {
+    margin-right: 10px;
+}
+
+.background-con a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-left: 2%;
+    color: white;
+    border: 3px solid white;
+    background-color: rgb(193, 176, 134);
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    box-shadow: 2px 15px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 45%;
+    cursor: pointer;
+}
+
+/* PARTIE ROOMS */
+
+#rooms {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+}
+
+#rooms header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5%;
+}
+
+.sous-titre2  {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    text-align: left;
+    color:  rgb(108, 105, 105);
+    gap: 10px;
+}
+
+.sous-titre2::before {
+    content: "";
+    display: block;
+    width: 75px;
+    height: 4px;
+    background-color: rgb(193, 176, 134);
+}
+
+#rooms header a {
+    display: flex;;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    border: 3px solid white;
+    background-color: rgb(193, 176, 134);
+    width: 80px;
+    height: 30px;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-right: 5%;
+    box-shadow: 2px 15px 20px rgba(0, 0, 0, 0.3);
+}
+
+.room-title {
+    margin-left: 5%;
+    font-weight: normal;
+    color: rgb(44, 43, 43);
+    font-size: 18px;
+}
+
+.chambres {
+    display: grid;
+    grid-template-areas:
+        "chambre1 chambre2 chambre3";
+    justify-content: center; 
+    gap: 20px;
+    width: 90%; 
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.chambres div {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    border: 3px solid rgb(193, 176, 134); 
+    text-align: left;
+    border-radius: 5%;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.chambres img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover; 
+    border-top-left-radius: 5%;  
+    border-top-right-radius: 5%; 
+    border-bottom-left-radius: 0;  
+    border-bottom-right-radius: 0;
+}
+
+.chambres h3 {
+    margin-top: 10px;
+    font-size: 16px;
+    padding-left: 15px;
+    margin-bottom: 0%;
+    font-weight: normal;
+    color: rgb(44, 43, 43)
+}
+
+.chambres p {
+    font-size: 12px;
+    padding-left: 15px;
+    color: rgb(159, 152, 152);
+}
+
+.chambres span {
+    font-size: 16px;
+    color: rgb(36, 33, 33);
+}
+
+/* PARTIE RESTAURANT */
+
+.restaurant-container {
+    display: flex; /* Active l'alignement horizontal */
+    width: 95%; /* Prend toute la largeur de la page */
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.restaurant-image {
+    width: 30%; /* L’image prend 30% de la page */
+    overflow: hidden; /* Cache ce qui dépasse */
+    height: 85vh;
+    border: 3px solid rgb(193, 176, 134);
+    border-radius: 25px;
+}
+
+.restaurant-image img {
+    width: 100%;
+    height: 100%; /* Pleine hauteur */
+    object-fit: cover; /* Évite la déformation */
+}
+
+.restaurant-content {
+    width: 65%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+.sous-titre3 {
+    font-size: 16px;
+    color: rgb(44, 43, 43);
+    font-family: 'Roboto Slab', serif;
+    font-weight: normal;
+}
+
+.sous-titre3::before {
+    content: "";
+    display: block;
+    width: 75px;
+    height: 4px;
+    margin-bottom: 10px;
+    background-color: rgb(193, 176, 134);
+}
+
+#restaurant p {
+    font-size: 12px;
+}
+
+#restaurant a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-top: -5%;
+    color: white;
+    border: 3px solid white;
+    background-color: rgb(193, 176, 134);
+    width: 80px;
+    height: 30px;
+    border-radius: 25px;
+    padding: 10px 20px;
+    box-shadow: 2px 15px 20px rgba(0, 0, 0, 0.3);
+}
+
+.restaurant-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    gap: 15px;
+}
+
+/* Conteneur de chaque image */
+.resto-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    border: 4px solid rgb(193, 176, 134);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+}
+
+/* Images */
+.resto-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Overlay : caché par défaut */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: bottom 2s ease-in-out;
+}
+
+/* Style du texte */
+.overlay h3, .overlay p {
+    color: white;
+    background-color: rgb(193, 176, 134,0.7);
+    padding: 5px;
+}
+
+.overlay h3 {
+    width: 100%;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.overlay p {
+    border-radius: 15px;
+    margin: 20px;
+    font-size: 13px;
+    text-align: justify;
+}
+
+.resto-item:hover .overlay {
+    bottom: 0; /* Fait remonter l'overlay */
+}
+
+/* PARTIE GALLERY*/
+
+#gallery {
+    width: 100%;
+    overflow-x: auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+.sous-titre5  {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto Slab', serif;
+    font-size: 12px;
+    margin-left: 10%;
+    text-align: left;
+    color:  rgb(51, 51, 51);
+    gap: 10px;
+}
+
+.sous-titre5::before {
+    content: "";
+    display: block;
+    width: 75px;
+    height: 4px;
+    background-color: rgb(193, 176, 134);
+}
+
+.header-gallery {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 0 10%; 
+}
+
+.title-gallery {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.header-gallery a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-right: 20%;
+    color: white;
+    border: 3px solid white;
+    background-color: rgb(193, 176, 134);
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    box-shadow: 2px 15px 20px rgba(0, 0, 0, 0.3);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.gallery-display {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 600px;
+    flex-grow: 1;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+/* Style de base pour toutes les images */
+.gallery-item {
+    height: auto;
+    border: 3px solid rgb(193, 176, 134);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    object-fit: cover;
+    margin-bottom: 10%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Lorsque l'un des inputs est sélectionné, l'image associée devient plus grande */
+#img1:checked ~ .gallery-display label[for="img1"],
+#img2:checked ~ .gallery-display label[for="img2"],
+#img3:checked ~ .gallery-display label[for="img3"],
+#img4:checked ~ .gallery-display label[for="img4"],
+#img5:checked ~ .gallery-display label[for="img5"],
+#img6:checked ~ .gallery-display label[for="img6"],
+#img7:checked ~ .gallery-display label[for="img7"],
+#img8:checked ~ .gallery-display label[for="img8"] {
+    width: 55%;
+}
+
+/* Les autres images deviennent plus petites */
+#img1:checked ~ .gallery-display label:not([for="img1"]),
+#img2:checked ~ .gallery-display label:not([for="img2"]),
+#img3:checked ~ .gallery-display label:not([for="img3"]),
+#img4:checked ~ .gallery-display label:not([for="img4"]),
+#img5:checked ~ .gallery-display label:not([for="img5"]),
+#img6:checked ~ .gallery-display label:not([for="img6"]),
+#img7:checked ~ .gallery-display label:not([for="img7"]),
+#img8:checked ~ .gallery-display label:not([for="img8"]) {
+    width: 3%;
+    filter: blur(1px);
+}
