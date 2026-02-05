@@ -1,13 +1,168 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-  body {
-    display: flex;
+body {
+    background: #0f172a; /* Bleu nuit profond */
+    background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                      radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);
+    color: #f8fafc;
     min-height: 100vh;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #333;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navbar ultra-fine en haut */
+.navbar {
+    position: fixed;
+    top: 25px;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    padding: 8px 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0 15px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #3b82f6;
+}
+
+/* La Carte Principale */
+.profile-card {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 32px;
+    display: flex;
+    width: 950px; /* Plus large pour l'effet dynamique */
+    min-height: 500px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* Colonne Gauche : MASSIVE et Dynamique */
+.left-col {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.02));
+    padding: 60px 40px;
+    text-align: center;
+    flex: 0 0 420px; /* On l'agrandit nettement */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.img-wrapper {
+    width: 250px; /* On reste sur une taille imposante */
+    height: 320px; /* Hauteur supérieure à la largeur pour l'effet ovale */
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 125px; /* La moitié de la largeur pour l'arrondi parfait */
+    object-fit: cover;
+    border: 2px solid rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); /* Lueur bleue subtile */
+    transition: all 0.4s ease;
+}
+
+.img-wrapper img:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
+    transform: scale(1.02);
+}
+
+.left-col h1 {
+    font-size: 34px;
+    font-weight: 800;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+.roles {
+    font-size: 13px;
+    color: #3b82f6;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 6px 15px;
+    border-radius: 100px;
+}
+
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-links a {
+    color: #94a3b8; /* Gris discret par défaut */
+    font-size: 22px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Effet au survol : les icônes s'éclairent en bleu comme tes rôles */
+.social-links a:hover {
+    color: #3b82f6;
+    transform: translateY(-3px); /* Petit saut dynamique */
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+/* Colonne Droite : Discrète */
+.right-col {
+    padding: 60px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: transparent;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #94a3b8;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.btn {
+    padding: 16px 32px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    border-radius: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #0f172a;
+    transform: translateY(-5px);
+}
