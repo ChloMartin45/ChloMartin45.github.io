@@ -1,13 +1,16 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-  body {
-    display: flex;
+body {
+    background: #0f172a; /* Bleu nuit profond */
+    background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                      radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);
+    color: #f8fafc;
     min-height: 100vh;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #333;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
