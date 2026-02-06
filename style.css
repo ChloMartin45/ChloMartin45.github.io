@@ -15,7 +15,7 @@ body {
 }
 
 /* --- NAVBAR --- */
-.navbar {
+#skills-page .navbar {
     position: fixed;
     top: 25px;
     left: 50%;
@@ -28,7 +28,7 @@ body {
     z-index: 1000;
 }
 
-.nav-links a {
+#skills-page .nav-links a {
     text-decoration: none;
     color: #94a3b8;
     font-size: 13px;
@@ -47,13 +47,13 @@ body {
     padding-top: 120px;
 }
 
-.skills-container {
+#skills-page .skills-container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
 }
 
-.page-title {
+#skills-page .page-title {
     text-align: center;
     margin-bottom: 50px;
     font-size: 36px;
@@ -63,13 +63,13 @@ body {
 }
 
 /* Grille : 3 colonnes sur PC, 1 sur Mobile */
-.skills-grid {
+#skills-page .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
 }
 
-.skill-card {
+#skills-page .skill-card {
     background: rgba(30, 41, 59, 0.5);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -79,38 +79,32 @@ body {
     transition: all 0.3s ease;
 }
 
-.skill-card:hover {
-    transform: translateY(-10px);
-    border-color: #3b82f6;
-    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
-}
-
-.skill-card .icon {
+#skills-page .skill-card .icon {
     font-size: 40px;
     color: #3b82f6;
     margin-bottom: 20px;
 }
 
-.skill-card h3 {
+#skills-page .skill-card h3 {
     font-size: 22px;
     margin-bottom: 15px;
     color: #fff;
 }
 
-.packages {
+#skills-page .packages {
     font-size: 14px;
     color: #3b82f6;
     font-weight: 600;
     line-height: 1.6;
 }
 
-.description {
+#skills-page .description {
     font-size: 15px;
     color: #94a3b8;
     line-height: 1.6;
 }
 
-.tag {
+#skills-page .tag {
     display: inline-block;
     background: rgba(59, 130, 246, 0.1);
     color: #3b82f6;
