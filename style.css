@@ -94,6 +94,19 @@ body.projects-page {
     margin-top: 10px;
 }
 
+.collab-link {
+    color: #3b82f6; /* On utilise ton bleu fétiche */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.collab-link:hover {
+    color: #60a5fa; /* Un bleu plus clair au survol */
+    border-bottom: 1px solid #60a5fa;
+}
+
 .description {
     font-size: 17px;
     line-height: 1.7;
