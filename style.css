@@ -14,3 +14,152 @@ body {
     align-items: center;
 }
 
+/* PARAMÈTRES page projets */
+
+/* Fix pour l'affichage : on enlève le centrage forcé sur la page projets */
+#process-page {
+    display: block; 
+    padding-top: 120px; /* Espace pour la navbar */
+}
+
+/* --- NAVBAR --- */
+#process-page .navbar {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    padding: 8px 30px;
+    z-index: 1000;
+}
+
+#process-page .nav-links a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0 15px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#process-page .nav-links a.active, .nav-links a:hover { color: #3b82f6; }
+
+/* --- STRUCTURE DES BOX (COMMUN PAGE 1 & 2) --- */
+#process-page .profile-card {
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 32px;
+    display: flex;
+    width: 950px;
+    margin: 0 auto 50px; /* Centre la box et ajoute de l'espace en bas */
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+}
+
+#process-page .left-col {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 50px 40px;
+    flex: 0 0 380px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#process-page .right-col {
+    padding: 50px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --- CONTENU DES PROJETS --- */
+#process-page .category-icon {
+    font-size: 50px;
+    color: #3b82f6;
+    margin-bottom: 20px;
+}
+
+#process-page .roles {
+    font-size: 13px;
+    color: #3b82f6;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+#process-page .collab-link {
+    color: #3b82f6; /* On utilise ton bleu fétiche */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+#process-page .collab-link:hover {
+    color: #60a5fa; /* Un bleu plus clair au survol */
+    border-bottom: 1px solid #60a5fa;
+}
+
+#process-page .description {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+#process-page .actions-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid #3b82f6;
+    color: #3b82f6;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    align-self: center;
+}
+
+#process-page .btn-project {
+    padding: 12px 24px;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+#process-page .btn-project:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+#process-page .sub-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 14px;
+    align-self: center;
+    border-bottom: 1px solid transparent;
+}
+
+#process-page .sub-link:hover {
+    color: #fff;
+    border-bottom: 1px solid #3b82f6;
+}
