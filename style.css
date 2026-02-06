@@ -3,7 +3,7 @@
     font-family: 'Inter', sans-serif;
 }
 
-body {
+#home-page {
     background: #0f172a; /* Bleu nuit profond */
     background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
                       radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);
