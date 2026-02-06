@@ -12,6 +12,8 @@ body {
     min-height: 100vh;
 }
 
+/* PARAMÈTRES page projets */
+
 /* Fix pour l'affichage : on enlève le centrage forcé sur la page projets */
 body.projects-page {
     display: block; 
