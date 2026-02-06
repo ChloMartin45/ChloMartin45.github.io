@@ -15,13 +15,13 @@ body {
 /* PARAMÈTRES page projets */
 
 /* Fix pour l'affichage : on enlève le centrage forcé sur la page projets */
-body.projects-page {
+#projects-page {
     display: block; 
     padding-top: 120px; /* Espace pour la navbar */
 }
 
 /* --- NAVBAR --- */
-.navbar {
+#projects-page .navbar {
     position: fixed;
     top: 25px;
     left: 50%;
@@ -34,7 +34,7 @@ body.projects-page {
     z-index: 1000;
 }
 
-.nav-links a {
+#projects-page .nav-links a {
     text-decoration: none;
     color: #94a3b8;
     font-size: 13px;
@@ -45,10 +45,10 @@ body.projects-page {
     letter-spacing: 1px;
 }
 
-.nav-links a.active, .nav-links a:hover { color: #3b82f6; }
+#projects-page .nav-links a.active, .nav-links a:hover { color: #3b82f6; }
 
 /* --- STRUCTURE DES BOX (COMMUN PAGE 1 & 2) --- */
-.profile-card {
+#projects-page .profile-card {
     background: rgba(30, 41, 59, 0.5);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -60,7 +60,7 @@ body.projects-page {
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
 }
 
-.left-col {
+#projects-page .left-col {
     background: rgba(255, 255, 255, 0.03);
     padding: 50px 40px;
     flex: 0 0 380px;
@@ -72,7 +72,7 @@ body.projects-page {
     align-items: center;
 }
 
-.right-col {
+#projects-page .right-col {
     padding: 50px;
     flex: 1;
     display: flex;
@@ -81,13 +81,13 @@ body.projects-page {
 }
 
 /* --- CONTENU DES PROJETS --- */
-.category-icon {
+#projects-page .category-icon {
     font-size: 50px;
     color: #3b82f6;
     margin-bottom: 20px;
 }
 
-.roles {
+#projects-page .roles {
     font-size: 13px;
     color: #3b82f6;
     font-weight: 800;
@@ -96,7 +96,7 @@ body.projects-page {
     margin-top: 10px;
 }
 
-.collab-link {
+#projects-page .collab-link {
     color: #3b82f6; /* On utilise ton bleu fétiche */
     text-decoration: none;
     font-weight: 600;
@@ -104,25 +104,25 @@ body.projects-page {
     border-bottom: 1px solid transparent;
 }
 
-.collab-link:hover {
+#projects-page .collab-link:hover {
     color: #60a5fa; /* Un bleu plus clair au survol */
     border-bottom: 1px solid #60a5fa;
 }
 
-.description {
+#projects-page .description {
     font-size: 17px;
     line-height: 1.7;
     color: #cbd5e1;
     margin-bottom: 30px;
 }
 
-.actions-links {
+#projects-page .actions-links {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
 }
 
-.btn-project {
+#projects-page .btn-project {
     padding: 12px 24px;
     background: #3b82f6;
     color: white;
@@ -132,12 +132,12 @@ body.projects-page {
     transition: 0.3s;
 }
 
-.btn-project:hover {
+#projects-page .btn-project:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
 }
 
-.sub-link {
+#projects-page .sub-link {
     color: #94a3b8;
     text-decoration: none;
     font-size: 14px;
@@ -145,7 +145,7 @@ body.projects-page {
     border-bottom: 1px solid transparent;
 }
 
-.sub-link:hover {
+#projects-page .sub-link:hover {
     color: #fff;
     border-bottom: 1px solid #3b82f6;
 }
