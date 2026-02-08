@@ -1,40 +1,59 @@
-/* --- BASE --- */
+/* --- 1. BASE & RESET --- */
 * {
     margin: 0; padding: 0; box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
 
+body {
+    background: #0f172a;
+    color: #f8fafc;
+    height: 100vh;
+    overflow: hidden; /* Fixé pour l'accueil */
+}
+
+/* --- 2. LOGIQUE DE NAVIGATION --- */
+
 #home-page {
-    background: #0f172a; /* Bleu nuit profond */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centre la carte au milieu de l'écran */
+    position: relative;
     background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
                       radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);
-    color: #f8fafc;
-    min-height: 100vh;
 }
 
-/* PARAMÈTRES page projets */
-
-/* Fix pour l'affichage : on enlève le centrage forcé sur la page projets */
-#projects-page {
-    display: block; 
-    padding-top: 120px; /* Espace pour la navbar */
-}
-
-/* --- NAVBAR --- */
-#projects-page .navbar {
+.sub-page {
     position: fixed;
-    top: 25px;
-    left: 50%;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: #0f172a;
+    z-index: 2000;
+    display: none;
+    overflow-y: auto; /* Permet le scroll sur les projets */
+}
+
+/* Affichage au clic */
+#projects-page:target {
+    display: block;
+}
+
+/* --- 3. NAVBAR UNIQUE --- */
+.navbar {
+    position: fixed;
+    top: 25px; left: 50%;
     transform: translateX(-50%);
-    background: rgba(30, 41, 59, 0.7);
+    background: rgba(30, 41, 59, 0.8);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 100px;
     padding: 8px 30px;
-    z-index: 1000;
+    z-index: 5000; /* Très haut pour être toujours au-dessus */
+    display: flex;
 }
 
-#projects-page .nav-links a {
+.nav-links a {
     text-decoration: none;
     color: #94a3b8;
     font-size: 13px;
@@ -45,24 +64,54 @@
     letter-spacing: 1px;
 }
 
-#projects-page .nav-links a.active, .nav-links a:hover { color: #3b82f6; }
+.nav-links a:hover { color: #3b82f6; }
 
-/* --- STRUCTURE DES BOX (COMMUN PAGE 1 & 2) --- */
-#projects-page .profile-card {
-    background: rgba(30, 41, 59, 0.5);
+/* --- LOGIQUE DE COULEUR DYNAMIQUE --- */
+
+/* 1. ÉTAT PAR DÉFAUT : "À propos" est bleu */
+#link-home {
+    color: #3b82f6 !important;
+    font-weight: 700;
+}
+
+/* 2. SI PROJETS EST ACTIF (#projects-page est la cible) */
+/* On passe "À propos" en gris et "Projets" en bleu */
+body:has(#projects-page:target) #link-home {
+    color: #94a3b8 !important;
+    font-weight: 500;
+}
+
+body:has(#projects-page:target) #link-projects {
+    color: #3b82f6 !important;
+    font-weight: 700;
+}
+
+/* --- 4. CONTENEURS & CARTES --- */
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 140px 20px 80px; /* Padding haut pour pas que la navbar cache le titre */
+}
+
+/* Structure Commune des Cartes */
+.profile-card {
+    background: rgba(30, 41, 59, 0.4);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 32px;
     display: flex;
-    width: 950px;
-    margin: 0 auto 50px; /* Centre la box et ajoute de l'espace en bas */
     overflow: hidden;
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    margin-bottom: 40px; /* Espace entre les projets */
 }
 
-#projects-page .left-col {
+/* Colonne Gauche */
+.left-col {
     background: rgba(255, 255, 255, 0.03);
-    padding: 50px 40px;
+    padding: 60px 40px;
     flex: 0 0 380px;
     text-align: center;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
@@ -72,7 +121,8 @@
     align-items: center;
 }
 
-#projects-page .right-col {
+/* Colonne Droite */
+.right-col {
     padding: 50px;
     flex: 1;
     display: flex;
@@ -80,224 +130,49 @@
     justify-content: center;
 }
 
-/* --- CONTENU DES PROJETS --- */
-#projects-page .category-icon {
-    font-size: 50px;
-    color: #3b82f6;
-    margin-bottom: 20px;
-}
+/* --- 5. ÉLÉMENTS SPÉCIFIQUES --- */
 
-#projects-page .roles {
-    font-size: 13px;
-    color: #3b82f6;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 10px;
-}
-
-#projects-page .collab-link {
-    color: #3b82f6; /* On utilise ton bleu fétiche */
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid transparent;
-}
-
-#projects-page .collab-link:hover {
-    color: #60a5fa; /* Un bleu plus clair au survol */
-    border-bottom: 1px solid #60a5fa;
-}
-
-#projects-page .description {
-    font-size: 17px;
-    line-height: 1.7;
-    color: #cbd5e1;
-    margin-bottom: 30px;
-}
-
-#projects-page .actions-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-#projects-page .btn-project {
-    padding: 12px 24px;
-    background: #3b82f6;
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-#projects-page .btn-project:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
-}
-
-#projects-page .sub-link {
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 14px;
-    align-self: center;
-    border-bottom: 1px solid transparent;
-}
-
-#projects-page .sub-link:hover {
-    color: #fff;
-    border-bottom: 1px solid #3b82f6;
-}
-/* Navbar ultra-fine en haut */
-#home-page .navbar {
-    position: fixed;
-    top: 25px;
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 100px;
-    padding: 8px 30px;
-}
-
-#home-page .nav-links a {
-    text-decoration: none;
-    color: #94a3b8;
-    font-size: 13px;
-    font-weight: 500;
-    margin: 0 15px;
-    transition: 0.3s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-#home-page .nav-links a:hover, .nav-links a.active {
-    color: #3b82f6;
-}
-
-/* La Carte Principale */
-#home-page .profile-card {
-    background: rgba(30, 41, 59, 0.4);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 32px;
-    display: flex;
-    width: 950px; /* Plus large pour l'effet dynamique */
-    min-height: 500px;
-    overflow: hidden;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
-}
-
-/* Colonne Gauche : MASSIVE et Dynamique */
-#home-page .left-col {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.02));
-    padding: 60px 40px;
-    text-align: center;
-    flex: 0 0 420px; /* On l'agrandit nettement */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-#home-page .img-wrapper {
-    width: 250px; /* On reste sur une taille imposante */
-    height: 320px; /* Hauteur supérieure à la largeur pour l'effet ovale */
-    margin-bottom: 30px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#home-page .img-wrapper img {
-    width: 100%;
-    height: 100%;
-    border-radius: 125px; /* La moitié de la largeur pour l'arrondi parfait */
+.img-wrapper img {
+    width: 220px;     /* Largeur */
+    height: 280px;    /* Hauteur plus grande pour l'ovale */
+    border-radius: 110px; /* Moitié de la largeur pour arrondir les côtés */
     object-fit: cover;
+    margin-bottom: 25px;
     border: 2px solid rgba(59, 130, 246, 0.6);
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); /* Lueur bleue subtile */
-    transition: all 0.4s ease;
+    transition: 0.4s;
 }
 
-#home-page .img-wrapper img:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
-    transform: scale(1.02);
-}
+h1 { font-size: 2.5rem; margin-bottom: 10px; }
+h2 { font-size: 1.8rem; margin-bottom: 15px; color: #3b82f6; }
 
-#home-page .left-col h1 {
-    font-size: 34px;
-    font-weight: 800;
-    margin-top: 10px;
-    color: #ffffff;
-}
+.roles { color: #94a3b8; font-weight: 500; margin-bottom: 20px; }
+.description { font-size: 16px; line-height: 1.7; color: #cbd5e1; }
 
-#home-page .roles {
-    font-size: 13px;
-    color: #3b82f6;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: rgba(59, 130, 246, 0.1);
-    padding: 6px 15px;
-    border-radius: 100px;
-}
-
-#home-page .social-links {
-    margin-top: 25px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-#home-page .social-links a {
-    color: #94a3b8; /* Gris discret par défaut */
-    font-size: 22px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-/* Effet au survol : les icônes s'éclairent en bleu comme tes rôles */
-#home-page .social-links a:hover {
-    color: #3b82f6;
-    transform: translateY(-3px); /* Petit saut dynamique */
-    text-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
-}
-
-/* Colonne Droite : Discrète */
-#home-page .right-col {
-    padding: 60px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: transparent;
-}
-
-#home-page .description {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #94a3b8;
-    margin-bottom: 40px;
-    font-weight: 400;
-}
-
-#home-page .btn {
-    padding: 16px 32px;
-    background: transparent;
+/* Boutons */
+.btn, .btn-project {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #3b82f6;
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
     text-decoration: none;
-    border-radius: 16px;
+    border-radius: 14px;
     font-weight: 600;
     transition: 0.3s;
-    text-align: center;
 }
 
-#home-page .btn:hover {
-    background: #fff;
-    color: #0f172a;
-    transform: translateY(-5px);
+.btn:hover, .btn-project:hover {
+    background: #2563eb;
+    transform: translateY(-3px);
 }
+
+.actions-links { display: flex; align-items: center; gap: 20px; margin-top: 25px; flex-wrap: wrap; }
+.sub-link { color: #94a3b8; text-decoration: none; font-size: 14px; border-bottom: 1px solid transparent; }
+.sub-link:hover { color: #3b82f6; border-color: #3b82f6; }
+
+.social-links { display: flex; gap: 20px; margin-top: 20px; }
+.social-links i { font-size: 1.2rem; color: #94a3b8; transition: 0.3s; }
+.social-links i:hover { color: #3b82f6; }
+
+.category-icon { font-size: 3rem; color: #3b82f6; margin-bottom: 15px; }
+.collab { font-size: 13px; color: #64748b; margin-top: 15px; }
+.collab-link { color: #3b82f6; text-decoration: none; }

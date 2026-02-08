@@ -8,17 +8,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <section id="home-page">
-        <nav class="navbar">
-            <div class="nav-links">
-            <a href="#home-page" class="active">À propos</a>
-            <a href="#projects-page">Projets</a>
-            <a href="contact.html">En cours</a>
-            <a href="competences.html">Compétences</a>
-            <a href="contact.html">Expériences</a>
-            </div>
-        </nav>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#home-page" id="link-home">À propos</a>
+            <a href="#projects-page" id="link-projects">Projets</a>
+            <a href="process-page">En cours</a>
+            <a href="skills-page">Compétences</a>
+            <a href="experience-page">Expériences</a>
+        </div>
+    </nav>
 
+    <section id="home-page">
         <main class="container">
             <section class="profile-card">
             <div class="left-col">
@@ -29,7 +29,7 @@
                 <p class="roles">Data Analyst · Scientist · Engineer</p>
 
                 <div class="social-links">
-                    <a href="mailto:chloe_martin45@outlook.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="mailto:chloe_martin45@outlook.com" title="Email" target="_blank"><i class="fa-solid fa-envelope"></i></a>
                     <a href="https://github.com/ChloMartin45" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/chloé-martin-b72277300" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
@@ -47,17 +47,7 @@
         </main>
     </section>
 
-    <section id="projects-page">
-
-        <nav class="navbar">
-            <div class="nav-links">
-            <a href="#home-page">À propos</a>
-            <a href="#project-page" class="active">Projets</a>
-            <a href="contact.html">En cours</a>
-            <a href="competences.html">Compétences</a>
-            <a href="contact.html">Expériences</a>
-            </div>
-        </nav>
+    <section id="projects-page" class="sub-page">
 
         <main class="container">
             <section class="profile-card project-box">
@@ -76,9 +66,9 @@
                         et une analyse statistique avancée. À travers une <strong>ACM et un clustering</strong>, nous avons identifié les profils types d'accidents pour proposer des mesures de prévention ciblées.
                     </p>
                     <div class="actions-links">
-                        <a href="assets/Dashboard_Velo.html" class="btn-project">Consulter le Dashboard</a>
-                        <a href="assets/Diapo_oral_ACM_Clustering.pdf" class="sub-link">Support Oral</a>
-                        <a href="assets/Dossier_Velo.pdf" class="sub-link">Dossier PDF</a>
+                        <a href="assets/Dashboard_Velo.html" class="btn-project" target="_blank" rel="noopener noreferrer">Consulter le Dashboard</a>
+                        <a href="assets/Diapo_oral_ACM_Clustering.pdf" class="sub-link" target="_blank" rel="noopener noreferrer">Support Oral</a>
+                        <a href="assets/Dossier_Velo.pdf" class="sub-link" target="_blank" rel="noopener noreferrer">Dossier PDF</a>
                     </div>
                 </div>
             </section>
@@ -99,7 +89,7 @@
                         et garantir une identification optimale des patients à risque.
                     </p>
                     <div class="actions-links">
-                        <a href="assets/Dossier_classifcation.pdf" class="btn-project">Rendu PDF</a>
+                        <a href="assets/Dossier_classifcation.pdf" class="btn-project" target="_blank" rel="noopener noreferrer">Rendu PDF</a>
                     </div>
                 </div>
             </section>
@@ -111,7 +101,7 @@
                     <p class="roles">Python · WebScraping · Machine Learning</p>
                     <p class="collab">
                         En collaboration avec 
-                        <a href="https://github.com/MatDepussay" target="_blank" class="collab-link">Mathias Depussay</a>
+                        <a href="https://github.com/MatDepussay" target="_blank" class="collab-link" target="_blank" rel="noopener noreferrer">Mathias Depussay</a>
                     </p>
                 </div>
                 <div class="right-col">
@@ -121,7 +111,7 @@
                     Grâce à un nettoyage par Polars et des modèles XGBoost (R² > 0.75), l'application <strong>Streamlit</strong> compare les prix du marché en temps réel pour isoler les annonces dont le prix est incohérent.
                     </p>
                     <div class="actions-links">
-                        <a href="https://github.com/ChloMartin45/Projet_WebScraping" class="btn-project"><i class="fa-brands fa-github"></i> Voir sur GitHub</a>
+                        <a href="https://github.com/ChloMartin45/Projet_WebScraping" class="btn-project" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> Voir sur GitHub</a>
                     </div>
                 </div>
             </section>
@@ -133,7 +123,7 @@
                     <p class="roles">Python · Réseau · Gestion · Optimisation</p>
                     <p class="collab">
                         En collaboration avec 
-                        <a href="https://github.com/MatDepussay" target="_blank" class="collab-link">Mathias Depussay</a>
+                        <a href="https://github.com/MatDepussay" target="_blank" class="collab-link" target="_blank" rel="noopener noreferrer">Mathias Depussay</a>
                     </p>
                 </div>
                 <div class="right-col">
@@ -143,7 +133,7 @@
                         Grâce à des algorithmes de <strong>flot maximal</strong> et une interface Streamlit interactive, AquaFlow identifie automatiquement les travaux prioritaires pour garantir l'approvisionnement en eau des villes à 100%.
                     </p>
                     <div class="actions-links">
-                        <a href="https://github.com/MatDepussay/Projet04" class="btn-project"><i class="fa-brands fa-github"></i> Voir sur GitHub</a>
+                        <a href="https://github.com/MatDepussay/Projet04" class="btn-project"><i class="fa-brands fa-github" target="_blank" rel="noopener noreferrer"></i> Voir sur GitHub</a>
                     </div>
                 </div>
             </section>
@@ -165,11 +155,12 @@
                         de la croissance du PIB et leurs implications.
                     </p>
                     <div class="actions-links">
-                        <a href="assets/Projet_croissance_eco.pdf" class="btn-project">Rendu PDF</a>
-                        <a href="assets/Projet_eco_html.html" class="btn-project">Version HTML</a>
+                        <a href="assets/Projet_croissance_eco.pdf" class="btn-project" target="_blank" rel="noopener noreferrer">Rendu PDF</a>
+                        <a href="assets/Projet_eco_html.html" class="btn-project" target="_blank" rel="noopener noreferrer">Version HTML</a>
                     </div>
                 </div>
             </section>
         </main>
     </section>
 </body>
+</html>
