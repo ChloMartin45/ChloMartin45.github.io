@@ -8,7 +8,7 @@ body {
     background: #0f172a;
     color: #f8fafc;
     height: 100vh;
-    overflow: hidden; /* Fixé pour l'accueil */
+    overflow: hidden; 
 }
 
 /* --- 2. LOGIQUE DE NAVIGATION --- */
@@ -18,7 +18,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center; /* Centre la carte au milieu de l'écran */
+    align-items: center;
     position: relative;
     background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
                       radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);
@@ -31,14 +31,11 @@ body {
     background: #0f172a;
     z-index: 2000;
     display: none;
-    overflow-y: auto; /* Permet le scroll sur les projets */
+    overflow-y: auto; 
 }
 
-/* Affichage au clic */
-#projects-page:target {
-    display: block;
-}
-
+/* Affichage dynamique des pages */
+#projects-page:target, 
 #process-page:target {
     display: block;
 }
@@ -53,7 +50,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 100px;
     padding: 8px 30px;
-    z-index: 5000; /* Très haut pour être toujours au-dessus */
+    z-index: 5000;
     display: flex;
 }
 
@@ -70,17 +67,11 @@ body {
 
 .nav-links a:hover { color: #3b82f6; }
 
-/* --- LOGIQUE DE COULEUR DYNAMIQUE --- */
+/* LOGIQUE DE COULEUR DYNAMIQUE */
+#link-home { color: #3b82f6 !important; font-weight: 700; }
 
-/* 1. ÉTAT PAR DÉFAUT : "À propos" est bleu */
-#link-home {
-    color: #3b82f6 !important;
-    font-weight: 700;
-}
-
-/* 2. SI PROJETS EST ACTIF (#projects-page est la cible) */
-/* On passe "À propos" en gris et "Projets" en bleu */
-body:has(#projects-page:target) #link-home {
+body:has(#projects-page:target) #link-home,
+body:has(#process-page:target) #link-home {
     color: #94a3b8 !important;
     font-weight: 500;
 }
@@ -90,16 +81,20 @@ body:has(#projects-page:target) #link-projects {
     font-weight: 700;
 }
 
-/* --- 4. CONTENEURS & CARTES --- */
+body:has(#process-page:target) #link-process {
+    color: #3b82f6 !important;
+    font-weight: 700;
+}
+
+/* --- 4. CONTENEURS & CARTES (Harmonisation des pages Projets/Process) --- */
 
 .container {
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 140px 20px 80px; /* Padding haut pour pas que la navbar cache le titre */
+    padding: 140px 20px 80px;
 }
 
-/* Structure Commune des Cartes */
 .profile-card {
     background: rgba(30, 41, 59, 0.4);
     backdrop-filter: blur(20px);
@@ -109,10 +104,9 @@ body:has(#projects-page:target) #link-projects {
     overflow: hidden;
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
     width: 100%;
-    margin-bottom: 40px; /* Espace entre les projets */
+    margin-bottom: 40px;
 }
 
-/* Colonne Gauche */
 .left-col {
     background: rgba(255, 255, 255, 0.03);
     padding: 60px 40px;
@@ -125,7 +119,6 @@ body:has(#projects-page:target) #link-projects {
     align-items: center;
 }
 
-/* Colonne Droite */
 .right-col {
     padding: 50px;
     flex: 1;
@@ -134,25 +127,34 @@ body:has(#projects-page:target) #link-projects {
     justify-content: center;
 }
 
-/* --- 5. ÉLÉMENTS SPÉCIFIQUES --- */
+/* --- 5. ÉLÉMENTS COMMUNS --- */
 
+/* Photo de profil ovale (uniquement accueil) */
 .img-wrapper img {
-    width: 220px;     /* Largeur */
-    height: 280px;    /* Hauteur plus grande pour l'ovale */
-    border-radius: 110px; /* Moitié de la largeur pour arrondir les côtés */
+    width: 220px;
+    height: 280px;
+    border-radius: 110px;
     object-fit: cover;
     margin-bottom: 25px;
     border: 2px solid rgba(59, 130, 246, 0.6);
-    transition: 0.4s;
 }
 
 h1 { font-size: 2.5rem; margin-bottom: 10px; }
 h2 { font-size: 1.8rem; margin-bottom: 15px; color: #3b82f6; }
 
-.roles { color: #94a3b8; font-weight: 500; margin-bottom: 20px; }
+/* Badges de technologies / Rôles */
+.roles { 
+    color: #3b82f6; 
+    font-weight: 700; 
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px; 
+}
+
 .description { font-size: 16px; line-height: 1.7; color: #cbd5e1; }
 
-/* Boutons */
+/* Boutons & Liens */
 .btn, .btn-project {
     display: inline-block;
     padding: 14px 28px;
@@ -167,98 +169,37 @@ h2 { font-size: 1.8rem; margin-bottom: 15px; color: #3b82f6; }
 .btn:hover, .btn-project:hover {
     background: #2563eb;
     transform: translateY(-3px);
-}
-
-.actions-links { display: flex; align-items: center; gap: 20px; margin-top: 25px; flex-wrap: wrap; }
-.sub-link { color: #94a3b8; text-decoration: none; font-size: 14px; border-bottom: 1px solid transparent; }
-.sub-link:hover { color: #3b82f6; border-color: #3b82f6; }
-
-.social-links { display: flex; gap: 20px; margin-top: 20px; }
-.social-links i { font-size: 1.2rem; color: #94a3b8; transition: 0.3s; }
-.social-links i:hover { color: #3b82f6; }
-
-.category-icon { font-size: 3rem; color: #3b82f6; margin-bottom: 15px; }
-.collab { font-size: 13px; color: #64748b; margin-top: 15px; }
-.collab-link { color: #3b82f6; text-decoration: none; }
-
-/* --- CONTENU DES PROJETS --- */
-#process-page .category-icon {
-    font-size: 50px;
-    color: #3b82f6;
-    margin-bottom: 20px;
-}
-
-#process-page .roles {
-    font-size: 13px;
-    color: #3b82f6;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 10px;
-}
-
-#process-page .collab-link {
-    color: #3b82f6; /* On utilise ton bleu fétiche */
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid transparent;
-}
-
-#process-page .collab-link:hover {
-    color: #60a5fa; /* Un bleu plus clair au survol */
-    border-bottom: 1px solid #60a5fa;
-}
-
-#process-page .description {
-    font-size: 17px;
-    line-height: 1.7;
-    color: #cbd5e1;
-    margin-bottom: 30px;
-}
-
-#process-page .actions-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.status-badge {
-    padding: 5px 12px;
-    background: rgba(59, 130, 246, 0.2);
-    border: 1px solid #3b82f6;
-    color: #3b82f6;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    align-self: center;
-}
-
-#process-page .btn-project {
-    padding: 12px 24px;
-    background: #3b82f6;
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-#process-page .btn-project:hover {
-    transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
 }
 
-#process-page .sub-link {
+.actions-links { display: flex; align-items: center; gap: 20px; margin-top: 25px; flex-wrap: wrap; }
+
+.sub-link, .collab-link {
     color: #94a3b8;
     text-decoration: none;
     font-size: 14px;
-    align-self: center;
+    transition: 0.3s;
     border-bottom: 1px solid transparent;
 }
 
-#process-page .sub-link:hover {
-    color: #fff;
-    border-bottom: 1px solid #3b82f6;
+.sub-link:hover, .collab-link:hover {
+    color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+/* Éléments Spécifiques aux Projets */
+.category-icon { font-size: 3.5rem; color: #3b82f6; margin-bottom: 15px; }
+.collab { font-size: 13px; color: #64748b; margin-top: 15px; }
+
+.status-badge {
+    padding: 4px 12px;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    color: #3b82f6;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
 }
