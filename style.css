@@ -39,6 +39,10 @@ body {
     display: block;
 }
 
+#process-page:target {
+    display: block;
+}
+
 /* --- 3. NAVBAR UNIQUE --- */
 .navbar {
     position: fixed;
@@ -176,3 +180,85 @@ h2 { font-size: 1.8rem; margin-bottom: 15px; color: #3b82f6; }
 .category-icon { font-size: 3rem; color: #3b82f6; margin-bottom: 15px; }
 .collab { font-size: 13px; color: #64748b; margin-top: 15px; }
 .collab-link { color: #3b82f6; text-decoration: none; }
+
+/* --- CONTENU DES PROJETS --- */
+#process-page .category-icon {
+    font-size: 50px;
+    color: #3b82f6;
+    margin-bottom: 20px;
+}
+
+#process-page .roles {
+    font-size: 13px;
+    color: #3b82f6;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+#process-page .collab-link {
+    color: #3b82f6; /* On utilise ton bleu fétiche */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+#process-page .collab-link:hover {
+    color: #60a5fa; /* Un bleu plus clair au survol */
+    border-bottom: 1px solid #60a5fa;
+}
+
+#process-page .description {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+#process-page .actions-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid #3b82f6;
+    color: #3b82f6;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    align-self: center;
+}
+
+#process-page .btn-project {
+    padding: 12px 24px;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+#process-page .btn-project:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+#process-page .sub-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 14px;
+    align-self: center;
+    border-bottom: 1px solid transparent;
+}
+
+#process-page .sub-link:hover {
+    color: #fff;
+    border-bottom: 1px solid #3b82f6;
+}
