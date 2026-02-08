@@ -36,7 +36,8 @@ body {
 
 /* Affichage dynamique des pages */
 #projects-page:target, 
-#process-page:target {
+#process-page:target,
+#skills-page:target {
     display: block;
 }
 
@@ -71,17 +72,15 @@ body {
 #link-home { color: #3b82f6 !important; font-weight: 700; }
 
 body:has(#projects-page:target) #link-home,
-body:has(#process-page:target) #link-home {
+body:has(#process-page:target) #link-home,
+body:has(#skills-page:target) #link-home {
     color: #94a3b8 !important;
     font-weight: 500;
 }
 
-body:has(#projects-page:target) #link-projects {
-    color: #3b82f6 !important;
-    font-weight: 700;
-}
-
-body:has(#process-page:target) #link-process {
+body:has(#projects-page:target) #link-projects,
+body:has(#process-page:target) #link-process,
+body:has(#skills-page:target) #link-skills {
     color: #3b82f6 !important;
     font-weight: 700;
 }
@@ -203,3 +202,85 @@ h2 { font-size: 1.8rem; margin-bottom: 15px; color: #3b82f6; }
     margin-bottom: 10px;
     display: inline-block;
 }
+
+
+/* --- CONFIGURATION SKILLS PAGE --- */
+#skills-page.sub-page {
+    background: #0f172a;
+    display: none; /* Caché par défaut */
+}
+
+#skills-page:target {
+    display: block; /* Affiché quand cliqué */
+}
+
+/* On utilise le même conteneur que les projets pour l'alignement */
+#skills-page .skills-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 140px 20px 80px; /* Aligné sur la navbar comme les projets */
+}
+
+/* Grille : 3 colonnes sur PC, s'adapte automatiquement */
+#skills-page .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+#skills-page .skill-card {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 35px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#skills-page .skill-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.5);
+    background: rgba(30, 41, 59, 0.6);
+}
+
+#skills-page .skill-card .icon {
+    font-size: 40px;
+    color: #3b82f6;
+    margin-bottom: 20px;
+}
+
+#skills-page .skill-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+#skills-page .packages {
+    font-size: 14px;
+    color: #3b82f6;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+#skills-page .description {
+    font-size: 15px;
+    color: #94a3b8;
+    line-height: 1.6;
+    }
+
+#skills-page .tag {
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    padding: 2px 10px;
+    border-radius: 6px;
+    margin: 2px;
+    font-size: 13px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    }
