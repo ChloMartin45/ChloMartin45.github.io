@@ -513,3 +513,43 @@ h2 { font-size: 1.8rem; margin-bottom: 15px; color: #3b82f6; }
         gap: 15px;
     }
 }
+
+/* --- STYLE GÉNÉRIQUE POUR LES TITRES DE SECTION --- */
+
+.section-title {
+    width: 100%;
+    max-width: 950px; 
+    margin: 60px auto 30px; 
+    font-size: 1.4rem;
+    color: #f8fafc;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Lignes décoratives */
+.section-title::before,
+.section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        to var(--direction, right), 
+        rgba(59, 130, 246, 0.5), 
+        transparent
+    );
+}
+
+.section-title::before {
+    --direction: left;
+}
+
+@media (max-width: 850px) {
+    .section-title {
+        font-size: 1.1rem;
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+}
