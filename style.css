@@ -7,14 +7,14 @@
 body {
     background: #0f172a;
     color: #f8fafc;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden; 
 }
 
 /* --- 2. LOGIQUE DE NAVIGATION --- */
 
 #home-page {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -394,4 +394,74 @@ h2 { font-size: 1.8rem; margin-bottom: 15px; color: #3b82f6; }
 /* Style spécifique pour les icônes d'expérience */
 #experience-page .category-icon i {
     color: #3b82f6;
+}
+
+/* --- RESPONSIVE LOGIC --- */
+
+@media (max-width: 850px) {
+    /* 1. Navbar : on réduit la taille et l'espacement */
+    .navbar {
+        top: 10px;
+        width: 95%;
+        padding: 5px 10px;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        margin: 0 8px;
+        font-size: 11px;
+    }
+
+    /* 2. Containers : on réduit le padding haut pour coller à la petite navbar */
+    .container, #skills-page .skills-container {
+        padding-top: 100px;
+    }
+
+    /* 3. Cartes (Profile & Projects) : Passage en mode Colonne */
+    .profile-card, .profile-card.project-box {
+        flex-direction: column;
+        border-radius: 20px;
+        max-width: 100%;
+    }
+
+    .left-col, .project-box .left-col {
+        flex: none;
+        width: 100%;
+        padding: 40px 20px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .right-col, .project-box .right-col {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    /* 4. Ajustements des éléments textuels */
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    
+    .img-wrapper img {
+        width: 160px;
+        height: 200px;
+    }
+
+    .actions-links {
+        justify-content: center;
+    }
+
+    /* 5. Grille de compétences : on force 1 ou 2 colonnes max */
+    #skills-page .skills-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 15px;
+    }
+}
+
+/* Ajustement pour les très petits écrans (iPhone SE, etc.) */
+@media (max-width: 400px) {
+    .nav-links a {
+        margin: 0 5px;
+        font-size: 10px;
+        letter-spacing: 0;
+    }
 }
