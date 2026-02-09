@@ -46,15 +46,18 @@ body {
 }
 
 @media (max-width: 850px) {
+    body {
+        overflow-y: auto;
+    }
+
     .sub-page {
-        position: relative;
         height: auto;
         min-height: 100vh;
-        overflow-y: auto;
+        overflow: visible; /* ✅ clé */
         background: #0f172a;
     }
-    
 }
+
 
 /* --- 3. NAVBAR UNIQUE --- */
 @media (max-width: 400px) {
@@ -118,6 +121,22 @@ body:has(#experience-page:target) #link-experience {
     color: #3b82f6 !important;
     font-weight: 700;
 }
+
+/* Cacher l'accueil quand une sub-page est active */
+body:has(#projects-page:target),
+body:has(#process-page:target),
+body:has(#skills-page:target),
+body:has(#experience-page:target) {
+    overflow-y: auto; /* scroll sur le body */
+}
+
+body:has(#projects-page:target) #home-page,
+body:has(#process-page:target) #home-page,
+body:has(#skills-page:target) #home-page,
+body:has(#experience-page:target) #home-page {
+    display: none; /* accueil invisible */
+}
+
 
 /* --- 4. CONTENEURS & CARTES (Harmonisation des pages Projets/Process) --- */
 
