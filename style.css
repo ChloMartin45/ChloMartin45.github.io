@@ -8,7 +8,7 @@ body {
     background: #0f172a;
     color: #f8fafc;
     min-height: 100vh;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 /* --- 2. LOGIQUE DE NAVIGATION --- */
@@ -25,13 +25,16 @@ body {
 }
 
 .sub-page {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100vh;
-    background: #0f172a;
-    z-index: 2000;
+    height: 100vh;
+    width: 100%;
+    overflow-y: auto;     
+    overflow-x: hidden;
     display: none;
-    overflow-y: auto; 
+    -webkit-overflow-scrolling: touch;
+}
+
+#home-page {
+    display: flex; /* accueil visible par défaut */
 }
 
 /* Affichage dynamique des pages */
@@ -42,7 +45,28 @@ body {
     display: block !important;
 }
 
+@media (max-width: 850px) {
+    .sub-page {
+        position: relative;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        background: #0f172a;
+    }
+    
+}
+
 /* --- 3. NAVBAR UNIQUE --- */
+@media (max-width: 400px) {
+    .navbar {
+        border-radius: 20px;
+    }
+
+    .nav-links a {
+        margin: 0 8px;
+        font-size: 11px;
+    }
+}
 .navbar {
     position: fixed;
     top: 25px; left: 50%;
@@ -54,6 +78,12 @@ body {
     padding: 8px 30px;
     z-index: 5000;
     display: flex;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nav-links a {
@@ -113,7 +143,7 @@ body:has(#experience-page:target) #link-experience {
 .left-col {
     background: rgba(255, 255, 255, 0.03);
     padding: 60px 40px;
-    flex: 0 0 380px;
+    flex: 0 0 clamp(260px, 35%, 380px);
     text-align: center;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
@@ -134,12 +164,20 @@ body:has(#experience-page:target) #link-experience {
 
 /* Photo de profil ovale (uniquement accueil) */
 .img-wrapper img {
-    width: 220px;
-    height: 280px;
+    width: min(220px, 100%);
+    aspect-ratio: 11 / 14;
     border-radius: 110px;
     object-fit: cover;
     margin-bottom: 25px;
     border: 2px solid rgba(59, 130, 246, 0.6);
+}
+
+@media (max-width: 850px) {
+    .img-wrapper img {
+        width: 160px;
+        aspect-ratio: 11 / 14;
+        height: auto;
+    }
 }
 
 h1 { font-size: 2.5rem; margin-bottom: 10px; }
@@ -156,6 +194,12 @@ h2 { font-size: 1.8rem; margin-bottom: 15px; color: #3b82f6; }
 }
 
 .description { font-size: 16px; line-height: 1.7; color: #cbd5e1; }
+
+@media (max-width: 850px) {
+    .description {
+        font-size: 15px;
+    }
+}
 
 /* Boutons & Liens */
 .btn, .btn-project {
@@ -209,14 +253,6 @@ h2 { font-size: 1.8rem; margin-bottom: 15px; color: #3b82f6; }
 
 
 /* --- CONFIGURATION SKILLS PAGE --- */
-#skills-page.sub-page {
-    background: #0f172a;
-}
-
-#skills-page:target {
-    display: block; /* Affiché quand cliqué */
-}
-
 /* On utilise le même conteneur que les projets pour l'alignement */
 #skills-page .skills-container {
     max-width: 1100px;
@@ -454,14 +490,5 @@ h2 { font-size: 1.8rem; margin-bottom: 15px; color: #3b82f6; }
     #skills-page .skills-grid {
         grid-template-columns: 1fr; /* Une seule colonne sur mobile */
         gap: 15px;
-    }
-}
-
-/* Ajustement pour les très petits écrans (iPhone SE, etc.) */
-@media (max-width: 400px) {
-    .nav-links a {
-        margin: 0 5px;
-        font-size: 10px;
-        letter-spacing: 0;
     }
 }
