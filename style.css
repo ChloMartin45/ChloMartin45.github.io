@@ -60,6 +60,18 @@ body {
     }
 }
 
+/* Masquer les liens de navigation vers la page en cours */ 
+
+#link-process {
+    display: none;
+}
+
+/* Masquer la section entière */
+#process-page {
+    display: none;
+}
+
+
 
 /* --- 3. NAVBAR UNIQUE --- */
 @media (max-width: 400px) {
